@@ -21,7 +21,7 @@ func main() {
 	db := storage.New(cfg.Storage)
 	a := api.New(cfg.API, db)
 
-	mux.HandleFunc("/files", api.WrapRouterError(a.Router))
+	mux.HandleFunc("/files/", api.WrapRouterError(a.Router))
 	mux.HandleFunc("/files/list", api.WrapHandlerError(a.List))
 
 	log.Printf("Starting HTTP server at %s\n", s.Addr)

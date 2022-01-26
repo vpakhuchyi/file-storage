@@ -53,6 +53,7 @@ func New(cfg config.API, storage Storage) Client {
 	}
 }
 
+// Router is responsible for requests and handler matching.
 func (c Client) Router(w http.ResponseWriter, r *http.Request) func(w http.ResponseWriter, r *http.Request) error {
 	return func(w http.ResponseWriter, r *http.Request) error {
 		switch r.Method {
@@ -60,8 +61,8 @@ func (c Client) Router(w http.ResponseWriter, r *http.Request) func(w http.Respo
 			return c.Download(w, r)
 		case http.MethodPost:
 			return c.Upload(w, r)
+		default:
+			return ErrInvalidRequestMethod
 		}
-
-		return nil
 	}
 }

@@ -23,7 +23,7 @@ Hint for Postman usage (body example):
 ![This is an image](static/post-body.png)
 
 ### Download
-URL: `host:port/files?name=26.png`   
+URL: `host:port/files/26.png`   
 Method: `GET`
 
 ### List

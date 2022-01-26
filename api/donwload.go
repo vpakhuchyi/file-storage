@@ -9,13 +9,7 @@ import (
 
 // Download is a handler that allows images downloading.
 func (c Client) Download(w http.ResponseWriter, r *http.Request) error {
-	if r.Method != http.MethodGet {
-		return ErrInvalidRequestMethod
-	}
-
-	// File identifier (file name in our case) is passed through query just to simplify the solution.
-	// A more convenient way is to take it from the path.
-	fileName := r.URL.Query().Get("name")
+	fileName := r.URL.Path[7:]
 	if err := c.Storage.Download(fileName, w); err != nil {
 		// It's better to mpa errors between different layers to avoid a needs to check for such errors like syscall.ENOENT.
 		// However, current option is much faster to implement >_<.
