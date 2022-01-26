@@ -7,7 +7,7 @@ import (
 	"syscall"
 )
 
-// Download is a handler that allows files downloading.
+// Download is a handler that allows images downloading.
 func (c Client) Download(w http.ResponseWriter, r *http.Request) error {
 	if r.Method != http.MethodGet {
 		return ErrInvalidRequestMethod

@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-// Upload is a handler that allows to upload a file (an image in current implementation).
+// Upload is a handler that allows to upload an image.
 func (c Client) Upload(w http.ResponseWriter, r *http.Request) error {
 	if r.Method != http.MethodPost {
 		return ErrInvalidRequestMethod

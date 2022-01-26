@@ -1,11 +1,11 @@
 package api
 
 /*
-This package ios responsible for files API definition.
+This package ios responsible for images API definition.
 
 In the current implementation the following operations are supported:
-1. Upload a file (image)
-2. Download a file by its name
+1. Upload an image
+2. Download an image by its name
 3. List existing files meta-information
 
 */
