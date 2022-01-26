@@ -15,7 +15,7 @@ Currently, configuration is stored in code: `file-storage/config/config.go`.
 
 ## API
 ### Upload
-URL: `host:port/upload`   
+URL: `host:port/files`   
 Method: `POST`  
 Body: `form-data` that contains `file` key with corresponding file content
 
@@ -23,11 +23,11 @@ Hint for Postman usage (body example):
 ![This is an image](static/post-body.png)
 
 ### Download
-URL: `host:port/download?name=26.png`   
+URL: `host:port/files?name=26.png`   
 Method: `GET`
 
 ### List
-URL: `host:port/list`   
+URL: `host:port/files/list`   
 Method: `GET`  
 Output example:
 ```

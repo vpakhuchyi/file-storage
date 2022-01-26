@@ -27,6 +27,7 @@ Thoughts:
 
 import (
 	"io"
+	"net/http"
 
 	"file-storage/config"
 )
@@ -49,5 +50,18 @@ func New(cfg config.API, storage Storage) Client {
 	return Client{
 		Config:  cfg,
 		Storage: storage,
+	}
+}
+
+func (c Client) Router(w http.ResponseWriter, r *http.Request) func(w http.ResponseWriter, r *http.Request) error {
+	return func(w http.ResponseWriter, r *http.Request) error {
+		switch r.Method {
+		case http.MethodGet:
+			return c.Download(w, r)
+		case http.MethodPost:
+			return c.Upload(w, r)
+		}
+
+		return nil
 	}
 }
